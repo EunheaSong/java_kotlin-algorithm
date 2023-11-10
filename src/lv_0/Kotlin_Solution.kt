@@ -2,7 +2,7 @@ package lv_0
 
 class Kotlin_Solution {}
 
-// 문자열 출력하기
+//Q. 문자열 출력하기
 //// 답 1.
 //fun main(args: Array<String>) {
 //    println(readLine(args)!!)
@@ -26,7 +26,7 @@ class Kotlin_Solution {}
  */
 
 
-//a와 b 출력하기
+//Q. a와 b 출력하기
 //fun main(args: Array<String>) {
 ////        답 1.
 //    val (a, b) = readLine()!!.split(' ').map(String::toInt)
@@ -38,7 +38,8 @@ class Kotlin_Solution {}
 ////    }
 //}
 
-//문자열 반복해서 출력하기
+
+//Q. 문자열 반복해서 출력하기
 fun main(args: Array<String>) {
     //답 1.
 //    val input = readLine()!!.split(' ')
@@ -62,10 +63,7 @@ fun main(args: Array<String>) {
 //            print(s.repeat(n))
         }
     }
-
-
 }
-
 
 
 

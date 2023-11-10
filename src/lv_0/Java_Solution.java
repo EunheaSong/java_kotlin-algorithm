@@ -3,7 +3,7 @@ package lv_0;
 import java.util.Scanner;
 
 public class Java_Solution {
-    // 문자열 출력하기
+    //Q. 문자열 출력하기
     // 답 1.
 //    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
@@ -13,7 +13,7 @@ public class Java_Solution {
 //        }
 //    }
 
-    //a와 b 출력하기
+    //Q. a와 b 출력하기
 //    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
 //        int a = sc.nextInt();
@@ -22,7 +22,7 @@ public class Java_Solution {
 //        System.out.println("a = " + a + "\nb = " + b );
 //    }
 
-    //문자열 반복해서 출력하기
+    //Q. 문자열 반복해서 출력하기
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
