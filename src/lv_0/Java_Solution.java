@@ -14,12 +14,21 @@ public class Java_Solution {
 //    }
 
     //a와 b 출력하기
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        int a = sc.nextInt();
+//        int b = sc.nextInt();
+//
+//        System.out.println("a = " + a + "\nb = " + b );
+//    }
+
+    //문자열 반복해서 출력하기
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int b = sc.nextInt();
+        String str = sc.next();
+        int n = sc.nextInt();
 
-        System.out.println("a = " + a + "\nb = " + b );
+        System.out.println(str.repeat(n));
     }
 }
 

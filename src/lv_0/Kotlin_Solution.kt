@@ -27,17 +27,44 @@ class Kotlin_Solution {}
 
 
 //a와 b 출력하기
-fun main(args: Array<String>) {
-//        답 1.
-    val (a, b) = readLine()!!.split(' ').map(String::toInt)
-////        답 2.
-//    readlnOrNull()?.let {
-//        val (a, b) = it.split(' ').map(String::toInt)
-//        println("a = $a")
-//        println("b = $b")
-//    }
-}
+//fun main(args: Array<String>) {
+////        답 1.
+//    val (a, b) = readLine()!!.split(' ').map(String::toInt)
+//////        답 2.
+////    readlnOrNull()?.let {
+////        val (a, b) = it.split(' ').map(String::toInt)
+////        println("a = $a")
+////        println("b = $b")
+////    }
+//}
 
+//문자열 반복해서 출력하기
+fun main(args: Array<String>) {
+    //답 1.
+//    val input = readLine()!!.split(' ')
+//    val s1 = input[0]
+//    val a = input[1]!!.toInt()
+//    for (x in 1 .. a){
+//        print(s1)
+//    }
+
+    //답 2.
+    readlnOrNull()?.let {
+        val input = it.split(' ')
+        if (input.size > 1) {
+            val s = input[0]
+            val n = input[1].toInt()
+            //답 2-1
+//            for (x in 1 .. n){
+//                print(s)
+//            }
+            //답 2-2
+//            print(s.repeat(n))
+        }
+    }
+
+
+}
 
 
 
