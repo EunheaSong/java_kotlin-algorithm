@@ -1,8 +1,8 @@
-package lv_0;
+package algorithm.programmers.lv_0;
 
 import java.util.Scanner;
 
-public class Java_Solution {
+public class JavaSolution {
     //Q. 문자열 출력하기
     // 답 1.
 //    public static void main(String[] args) {
@@ -23,12 +23,12 @@ public class Java_Solution {
 //    }
 
     //Q. 문자열 반복해서 출력하기
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String str = sc.next();
-        int n = sc.nextInt();
-
-        System.out.println(str.repeat(n));
-    }
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        String str = sc.next();
+//        int n = sc.nextInt();
+//
+//        System.out.println(str.repeat(n));
+//    }
 }
 
