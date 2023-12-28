@@ -1,4 +1,4 @@
-package algorithm.programmers.lv_0
+package algorithm.kotlin.programmers.lv_0
 
 class Kotlin_Solution {}
 

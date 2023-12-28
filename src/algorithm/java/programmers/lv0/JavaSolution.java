@@ -1,4 +1,4 @@
-package algorithm.programmers.lv_0;
+package algorithm.java.programmers.lv0;
 
 import java.util.Scanner;
 
