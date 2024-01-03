@@ -112,5 +112,42 @@ public class ReorderDataInLogFiles {
         return Integer.compare(x.length, y.length);
     }
 
+    public static class BookAnswer{
+        public String[] reorderLogFiles(String[] logs) {
+            List<String> letterList = new ArrayList<>();
+            List<String> digitList = new ArrayList<>();
+
+            for (String log : logs) {
+                if (Character.isDigit(log.split(" ")[1].charAt(0))) {
+                    digitList.add(log);
+                } else {
+                    letterList.add(log);
+                }
+            }
+
+            letterList.sort((s1, s2) -> {
+                /*
+                split 에 두 번째 파라미터로 limit 값을 넣어주면 limit 값에 맞게 등분 된다.
+                ex) let1 art can 이라는 문자열이 있을 경우.
+                 아래에서는 limit 을 2로 주었으므로 문자열이 이등분되어
+                 index 0 : let1 / index1 : art can  이 된다.
+                 */
+                String[] s1x = s1.split(" ", 2);
+                String[] s2x = s2.split(" ", 2);
+                int compared = s1x[1].compareTo(s2x[1]);
+                // 같으면 0, 비교 대상(s2x)가 더 크다면 음수, 비교 대상이 더 작다면 양수를 리턴한다.
+                System.out.println("s1x : " + s1x[1] + " / s2x : " + s2x[1]);
+                System.out.println(compared);
+                if (compared == 0) {
+                    return s1x[0].compareTo(s2x[0]);
+                } else {
+                    return compared;
+                }
+            });
+
+            letterList.addAll(digitList);
+            return letterList.toArray(new String[0]);
+        }
+    }
 
 }
