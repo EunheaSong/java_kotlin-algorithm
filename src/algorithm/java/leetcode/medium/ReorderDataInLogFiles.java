@@ -5,7 +5,14 @@ import java.util.*;
 public class ReorderDataInLogFiles {
     /*
         System.out.println("937번 Reorder Data in Log Files : ");
-        String[] logs = {"j je", "b fjt", "7 zbr", "m le", "o 33"};
+        String[] logs = {"dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"};
+//        String[] logs = {"j je", "b fjt", "7 zbr", "m le", "o 33"};
+//        String[] logs = {"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo","a2 act car"};
+        ReorderDataInLogFiles r = new ReorderDataInLogFiles();
+        String[] answer = r.reorderLogFiles(logs);
+        for (String s : answer) {
+            System.out.println(s);
+        }
      */
     /*
     규칙 1. 문자로그가 숫자로그보다 앞에 온다.
@@ -33,84 +40,45 @@ public class ReorderDataInLogFiles {
     logs[i] is guaranteed to have an identifier and at least one word after the identifier.
      */
     public String[] reorderLogFiles(String[] logs) {
-        //첫 문자열은 구분자
-
-        // key value 로 만들어야할까?
-        //["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"]
-        //["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"]
-        //["a8 act zoo","g1 act car","zo4 4 7","ab1 off key dog","a1 9 2 3 1"]
-        //["a8 act zoo","g1 act car","zo4 4 7","ab1 off key dog","a1 9 2 3 1"]
-        // 4,2,5,6,1,3
-        // 4
-        // 2,4
-        // 2,4,5
-        // 2,4,5,6
-        //"j je", "b fjt", "7 zbr", "m le", "o 33"
-        //j je
-        //"b fjt, j je,
-
-
         List<String> a = new LinkedList<>();
         List<String> b = new ArrayList<String>();
         System.out.println("Start!");
-        for (int i = 0; i < logs.length; i++){
-            System.out.println(i);
+        for (int i = 0; i < logs.length; i++) {
             String log = logs[i];
             String[] l = log.split(" ");
             char[] c = l[1].toCharArray();
-            System.out.println(c[0]);
-            if (Character.isDigit(c[0])){
+            if (Character.isDigit(c[0])) {
                 b.add(log);
-                System.out.println("continue : " + log);
                 continue;
             }
-            if (a.isEmpty()){
+            if (a.isEmpty()) {
                 a.add(log);
             }
-            for(int j = 0; j < a.size(); j++) {
+            for (int j = 0; j < a.size(); j++) {
                 if (log.equals(a.get(j))) {
                     continue;
                 }
-                System.out.println("a.size : " + a.size());
                 String[] l2 = a.get(j).split(" ");
                 int t = test(l, l2);
                 if (t > 0) {
                     // l 이 l2 보다 클 경우.
-                    //
                     int x = t;
                     int y = 1;
-                    while (x > 0){
-                        if (j+y == a.size()){
+                    while (x > 0) {
+                        if (j + y == a.size()) {
                             a.add(j + y, log);
                             break;
                         }
-                        x = test(l, a.get(j+y).split(" "));
+                        x = test(l, a.get(j + y).split(" "));
                         if (x <= 0) {
-//                            a.add(j+y+1, a.get(j+y));
-                            a.add(j+y, log);
+                            a.add(j + y, log);
                         }
                         y++;
                     }
-                    System.out.println("if : " + (j+1) + " " + log);
-                    for (String s : a) {
-                        System.out.println(s);
-                    }
                     break;
-
-                } else if (t < 0){
-                    for (String s : a) {
-                        System.out.println(s);
-                    }
+                } else if (t < 0) {
                     // l 이 l2 보다 작거나 같을 경우.
-//                    a.add(j + 1, a.get(j));
-                    System.out.println("else if :" + a.get(j));
-
                     a.add(j, log);
-                    System.out.println("else if :" + j + log);
-
-                    for (String s : a) {
-                        System.out.println(s);
-                    }
                     break;
                 } else {
                     // 로그 내용이 다 같을 경우. 식별자로 구분.
@@ -118,20 +86,17 @@ public class ReorderDataInLogFiles {
                     if (q > 0) {
                         a.add(j + 1, log);
                     } else {
-//                        a.add(j + 1, a.get(j));
                         a.add(j, log);
                     }
                     break;
                 }
             }
-            System.out.println("===============");
-//            break;
         }
         a.addAll(b);
         return a.toArray(new String[a.size()]);
     }
 
-    public int test(String[] x, String[] y){
+    public int test(String[] x, String[] y) {
         for (int i = 1; i < x.length; i++) {
             int a = x[i].compareTo(y[i]);
             if (a > 0) {
@@ -140,7 +105,6 @@ public class ReorderDataInLogFiles {
                 // l 이 l2 보다 작을 경우.
                 return -1;
             }
-            System.out.println("test index : " + i);
         }
         /*
          return (x < y) ? -1 : ((x == y) ? 0 : 1);
