@@ -52,4 +52,45 @@ public class MostCommonWord {
         return word;
     }
 
+    public static class BookAnswer{
+        public String mostCommonWord(String paragraph, String[] banned) {
+            Set<String> ban = new HashSet<>(Arrays.asList(banned));
+            Map<String, Integer> counts = new HashMap<>();
+
+            String[] words = paragraph.replaceAll("\\W+", " ").toLowerCase().split(" ");
+
+            for (String w : words) {
+                if (!ban.contains(w)) {
+                    /*
+                    getOrDefault -> 첫번째 파라미터로 키 값을 주고,
+                        해당 키값과 일치하는 게 없을 경우 두번째 파라미터로 준 기본 값을 리턴한다.
+                     */
+                    counts.put(w, counts.getOrDefault(w, 0) + 1);
+                }
+            }
+            /*
+            Collections.max() ->
+            첫 번째 파라미터에는 컬렉션의 구현체를 받는다. (List, Set,
+            (nullable) 두 번째 파라미터에는 Comparator (정렬 기준) 값을 받는다.
+            첫 번쩨 파라미터만 있을 경우에는 해당 컬렉션의 오브젝트의 comparator 를 기준으로 max 값이 찾아지고,
+            두 번째 파라미터로 기준을 주었을 때는 해당 comparator 를 기준으로 max 값이 찾아진다.
+            ex )
+            LinkedList<String> d = new LinkedList<>();
+            String a = Collections.max(
+                d,
+                (s1, s2) -> {
+                    char aa = s1.length() > 1 ? s1.charAt(0) : ' ';
+                    char b = s2.length() > 1 ? s2.charAt(0) : ' ';
+                    return Character.compare(aa, b);
+                }
+            );
+
+            Map.Entry ->
+             map 은 순회를 보장하지 않는다. (루프를 돌며 값을 조회한다던가 하는 행위를 할 수 없음.)
+             이러한 이유로 map 에서는 Entry 인터페이스를 통해 entrySet() 등의 메서드를 지원하여 set 형태로 순회를 돌 수 있게 한다.
+             또한 set 형태로 변경되었을 때 사용할 수 있는 여러가지 메서드를 지원한다.
+            */
+            return Collections.max(counts.entrySet(), Map.Entry.comparingByValue()).getKey();
+        }
+    }
 }
