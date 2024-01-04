@@ -5,6 +5,17 @@ import java.util.*;
 public class GroupAnagrams {
     /*
         System.out.println("49. Group Anagrams : ");
+//        String[] strs = {"eat","tea","tan","ate","nat","bat"};
+        String[] strs = {"ddddddddddg","dgggggggggg"};
+        GroupAnagrams ga = new GroupAnagrams();
+        List<List<String>> list = ga.groupAnagrams2(strs);
+        for (List<String> strings : list) {
+            System.out.print("[");
+            for (String s: strings) {
+                System.out.print(s + ",");
+            }
+            System.out.println("]");
+        }
 
         Example 1:
         Input: strs = ["eat","tea","tan","ate","nat","bat"]
