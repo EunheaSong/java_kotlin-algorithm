@@ -2,6 +2,10 @@ package algorithm.kotlin.leetcode.easy
 
 class MostCommonWord {
     /*
+        val paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
+    val banned = arrayOf("hit")
+    val m = MostCommonWord()
+    print( m.mostCommonWord(paragraph, banned))
 
     Example 1:
     Input: paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.", banned = ["hit"]
@@ -19,10 +23,18 @@ class MostCommonWord {
 
      */
     fun mostCommonWord(paragraph: String, banned: Array<String>): String {
+        val m = mutableMapOf<String, Int>()
+
         val regex = "[^a-zA-Z]"
         val x = "\\s+"
         val str = paragraph.lowercase().replace(regex.toRegex(), " ").split(x.toRegex())
+        str.filter {
+            !banned.contains(it)
+        }.forEach {
+            m[it] = m.getOrDefault(it, 0) + 1
+        }
 
-        return ""
+        return m.maxBy { it.value }.key
     }
+
 }

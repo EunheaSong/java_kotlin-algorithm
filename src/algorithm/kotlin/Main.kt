@@ -1,13 +1,13 @@
 package algorithm.kotlin
 
+import algorithm.kotlin.leetcode.easy.MostCommonWord
+
 class Main {
 }
 
 fun main() {
     val paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
-    val regex = "[^a-zA-Z]"
-    val x = "\\s+"
-    val str = paragraph.lowercase().replace(regex.toRegex(), " ").split(x.toRegex())
-
-    print(str)
+    val banned = arrayOf("hit")
+    val m = MostCommonWord()
+    print( m.mostCommonWord(paragraph, banned))
 }
