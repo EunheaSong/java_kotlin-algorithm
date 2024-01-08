@@ -37,4 +37,19 @@ class MostCommonWord {
         return m.maxBy { it.value }.key
     }
 
+    class BookAnswer{
+        fun mostCommonWord(paragraph: String, banned: Array<String>): String {
+            val counts: MutableMap<String, Int> = mutableMapOf()
+            //toLowerCase -> lowerCase 로 변경됨.
+            val words = paragraph.replace("\\W+".toRegex(), " ").toLowerCase().trim().split(" ")
+            for (w in words){
+                if (!banned.contains(w)) {
+                    counts[w] = counts.getOrDefault(w, 0) + 1
+                }
+            }
+            return counts.maxByOrNull { it.value }!!.key
+            //리턴 값이 nullable 하므로 리턴값이 항상 존재하는 해당 문제와 같은 경우가 아니라면 null 처리를 해주는 것이 필요하다.
+        }
+    }
+
 }
