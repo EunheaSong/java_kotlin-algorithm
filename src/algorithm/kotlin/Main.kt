@@ -1,13 +1,13 @@
 package algorithm.kotlin
 
-import algorithm.kotlin.leetcode.easy.MostCommonWord
+import algorithm.kotlin.leetcode.easy.*
 
 class Main {
 }
 
 fun main() {
-    val paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
-    val banned = arrayOf("hit")
-    val m = MostCommonWord()
-    print( m.mostCommonWord(paragraph, banned))
+    val chars = charArrayOf('h','e','l','l','o')
+//    val chars = charArrayOf('H','a','n','n','a','h')
+    val rs = ReversString()
+    rs.reversStrung(chars)
 }

@@ -19,9 +19,9 @@ public class ReorderDataInLogFiles {
     규칙 2. 문자로그는 내용의 알파벳 순으로 정렬한다.
     규칙 3. 숫자로그는
     문자 로그는 모든 숫자 로그 앞에 옵니다.
-편지 기록은 내용에 따라 사전순으로 정렬됩니다. 내용이 동일하면 식별자를 기준으로 사전순으로 정렬합니다.
-숫자 로그는 상대적 순서를 유지합니다.
-로그의 최종 순서를 반환합니다.
+    편지 기록은 내용에 따라 사전순으로 정렬됩니다. 내용이 동일하면 식별자를 기준으로 사전순으로 정렬합니다.
+    숫자 로그는 상대적 순서를 유지합니다.
+    로그의 최종 순서를 반환합니다.
     Example 1:
     Input: logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
     Output: ["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 3 6"]
