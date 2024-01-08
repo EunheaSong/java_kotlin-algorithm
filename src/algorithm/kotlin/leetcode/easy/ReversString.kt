@@ -30,4 +30,18 @@ class ReversString {
         }
         print(s)
     }
+
+    class BookAnswer{
+        fun reversStrung(s : CharArray) {
+            var start = 0
+            var end = s.size -1
+            while (start < end){
+                //코틀린에서 지원하는 스코프 함수를 사용하면 보다 코틀린스럽게 해결 할 수 있다.
+                s[start] = s[end].also { s[end] = s[start] }
+                start++
+                end--
+            }
+            print(s)
+        }
+    }
 }

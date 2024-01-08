@@ -8,6 +8,6 @@ class Main {
 fun main() {
     val chars = charArrayOf('h','e','l','l','o')
 //    val chars = charArrayOf('H','a','n','n','a','h')
-    val rs = ReversString()
+    val rs = ReversString.BookAnswer()
     rs.reversStrung(chars)
 }
