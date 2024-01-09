@@ -57,6 +57,7 @@ public class TwoSum {
 
     public static class BookAnswer {
 
+        //브루트 포스 방식.
         public int[] twoSum(int[] nums, int target) { // 45ms
             for (int i = 0; i < nums.length; i++) {
                 for (int j = i + 1; j < nums.length; j++) {
