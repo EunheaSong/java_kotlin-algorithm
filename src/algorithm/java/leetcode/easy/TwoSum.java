@@ -52,4 +52,20 @@ public class TwoSum {
         }
         return a;
     }
+
+    public static class BookAnswer {
+
+        public int[] twoSum(int[] nums, int target) {
+            for (int i = 0; i < nums.length; i++) {
+                for (int j = i + 1; j < nums.length; j++) {
+                    if (nums[i] + nums[j] == target) {
+                        return new int[]
+                            {i, j};
+                    }
+                }
+            }
+            //항상 정답이 존재하므로 null 이 리턴될 경우는 없다.
+            return null;
+        }
+    }
 }
