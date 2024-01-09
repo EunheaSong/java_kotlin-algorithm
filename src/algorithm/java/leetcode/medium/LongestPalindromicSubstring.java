@@ -27,6 +27,8 @@ public class LongestPalindromicSubstring {
     1 <= s.length <= 1000
     s consist of only digits and English letters.
      */
+
+    //해당 방식은 문자열이 길면 타임아웃으로 실패.
     public String longestPalindrome(String s) {
         String answer = "";
         for (int i = 0; i < s.length(); i++) {
@@ -46,6 +48,7 @@ public class LongestPalindromicSubstring {
 
     public String pointer(String s, int i, int j) {
         String str = "";
+        //앞 뒤 문자가 같으면 좌우로 확장한다.
         while (0 <= i && j <= s.length() && s.charAt(i) == s.charAt(j -1)) {
             str = s.substring(i, j);
             i--;
