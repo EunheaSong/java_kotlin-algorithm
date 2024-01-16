@@ -35,6 +35,11 @@ public class ArrayPartition {
     -104 <= nums[i] <= 104
      */
 
+    /*
+    오름차순으로 정렬하여 순서대로 두개씩 묶으면 요구사항에 맞는 계산이 된다.
+    -> 1,2,3,4 -> min(1,2) + min(3,4) -> 1 + 3 = 4
+    -> 1,2,2,5,6,6 -> min(1,2) + min(2,5) + min(6,6) -> 1 + 2 + 6 = 9
+     */
     public int arrayPairSum(int[] nums) {
         Arrays.sort(nums);
         int a = 0;
