@@ -69,4 +69,18 @@ public class ArrayPartition {
         }
     }
 
+    public static class LeetCodeFestestAnswer {
+
+        public int arrayPairSum(int[] nums) {
+            Arrays.sort(nums);
+            int sum = 0;
+            int i = 0;
+            int size = nums.length - 1;
+            while (i < size) {
+                sum += nums[i];
+                i += 2;
+            }
+            return sum;
+        }
+    }
 }
