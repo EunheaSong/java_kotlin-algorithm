@@ -77,6 +77,7 @@ public class ThreeSum {
 
     public static class BookAnswer {
 
+        //투포인터 사용.
         public List<List<Integer>> threeSum(int[] nums) {
             int left, right, sum;
             List<List<Integer>> results = new ArrayList<>();
@@ -88,10 +89,11 @@ public class ThreeSum {
                 //간격을 좁혀 가며 합 (sum) 계산.
                 left = i + 1;
                 right = nums.length - 1;
+                while (left < right) {
                     sum = nums[i] + nums[left] + nums[right];
                     //합이 0보다 작다면 왼쪽 포인터 이동;
                     if (sum < 0) left += 1;
-                    //합이 0보다 크면 오른쪽 포인터 이동.
+                        //합이 0보다 크면 오른쪽 포인터 이동.
                     else if (sum > 0) right -= 1;
                     else {
                         //합이 0인 경우이므로 정답 처리
@@ -107,6 +109,7 @@ public class ThreeSum {
                         right -= 1;
                     }
                 }
+            }
             return results;
         }
     }
