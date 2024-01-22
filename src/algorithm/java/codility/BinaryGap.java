@@ -23,4 +23,30 @@ public class BinaryGap {
         }
         return answer;
     }
+
+    /*
+    두 번째 시도 : 86%
+    https://app.codility.com/demo/results/training3UXFWK-EA6/
+    int N = 51712;
+    int N = 20;
+    int N = 6;
+    int N = 328;
+     */
+    public int solution2(int N) {
+        String str = Integer.toBinaryString(N);
+        System.out.println(str);
+        int answer = 0;
+        int a = 0;
+        if (str.replace("0", "").equals("1")) return answer;
+        for (int j = 0; j < str.length(); j++) {
+            if (str.charAt(j) == '1') {
+                a = 0;
+                continue;
+            }
+            a++;
+            answer = Math.max(a, answer);
+        }
+        return answer;
+    }
+
 }
