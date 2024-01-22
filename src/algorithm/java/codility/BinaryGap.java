@@ -49,4 +49,24 @@ public class BinaryGap {
         return answer;
     }
 
+    /*
+    세번째 시도 : 100%
+    https://app.codility.com/demo/results/trainingVPYEW4-QPY/
+     */
+    public int solution3(int N) {
+        String str = Integer.toBinaryString(N);
+        System.out.println(str);
+        int answer = 0;
+        int a = 0;
+//        if (str.replace("0", "").equals("1")) return answer;
+        for (int j = 0; j < str.length(); j++) {
+            if (str.charAt(j) == '1') {
+                answer = Math.max(a, answer);
+                a = 0;
+                continue;
+            }
+            a++;
+        }
+        return answer;
+    }
 }
