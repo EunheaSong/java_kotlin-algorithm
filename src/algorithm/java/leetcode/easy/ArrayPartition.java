@@ -74,7 +74,7 @@ public class ArrayPartition {
         }
     }
 
-    public static class LeetCodeFestestAnswer {
+    public static class LeetCodeFastestAnswer {
 
         public int arrayPairSum(int[] nums) {
             Arrays.sort(nums);

@@ -59,7 +59,7 @@ public class ValidPalindrome {
 
     }
 
-    public static class LeetCodeFestestAnswer{
+    public static class LeetCodeFastestAnswer{
         public boolean isPalindromeFastestOfAnswer(String s){
 
             s = s.toLowerCase();
