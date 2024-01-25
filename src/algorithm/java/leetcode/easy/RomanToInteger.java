@@ -39,35 +39,28 @@ public class RomanToInteger {
 
     public int romanToInt(String s) {
         int answer = 0;
-        char lastString = s.charAt(s.length() - 1);
-        for (int i = s.length() - 1; 0 <= i; i--) {
-            switch (s.charAt(i)) {
+        int length = s.length();
+        char lastString = s.charAt(length - 1);
+        for (int i = length - 1; 0 <= i; i--) {
+            char c = s.charAt(i);
+            switch (c) {
                 case 'I':
-                    if (lastString == 'V' || lastString == 'X') {
-                        answer -= 1;
-                    } else {
-                        answer += 1;
-                    }
+                    if (lastString == 'V' || lastString == 'X') answer -= 1;
+                    else answer += 1;
                     break;
                 case 'V':
                     answer += 5;
                     break;
                 case 'X':
-                    if (lastString == 'L' || lastString == 'C') {
-                        answer -= 10;
-                    } else {
-                        answer += 10;
-                    }
+                    if (lastString == 'L' || lastString == 'C') answer -= 10;
+                    else answer += 10;
                     break;
                 case 'L':
                     answer += 50;
                     break;
                 case 'C':
-                    if (lastString == 'D' || lastString == 'M') {
-                        answer -= 100;
-                    } else {
-                        answer += 100;
-                    }
+                    if (lastString == 'D' || lastString == 'M') answer -= 100;
+                    else answer += 100;
                     break;
                 case 'D':
                     answer += 500;
@@ -76,9 +69,7 @@ public class RomanToInteger {
                     answer += 1000;
                     break;
             }
-            lastString = s.charAt(i);
-            System.out.println(lastString);
-            System.out.println(answer);
+            lastString = c;
         }
         return answer;
     }
