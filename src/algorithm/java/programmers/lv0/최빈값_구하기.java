@@ -5,19 +5,16 @@ import java.util.Map;
 
 public class 최빈값_구하기 {
     public int solution(int[] array) {
-        int answer = 0;
+        int max = 0;
         int key = 0;
         Map<Integer, Integer> m = new HashMap<>();
         for (int i : array) {
-            if (m.containsKey(i)) m.put(i, m.get(i) + 1);
-            else m.put(i, 1);
-            if (answer < m.get(i)) {
-                answer = m.get(i);
+            int count = m.getOrDefault(i, 0) + 1;
+            m.put(i, count);
+            if (max < count) {
+                max = count;
                 key = i;
-            }
-        }
-        for (int j : array) {
-            if (key != j && answer == m.get(j)) return -1;
+            } else if (max == count) key = -1;
         }
         return key;
     }
