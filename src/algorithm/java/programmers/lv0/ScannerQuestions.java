@@ -1,8 +1,6 @@
 package algorithm.java.programmers.lv0;
 
-import java.util.Scanner;
-
-public class JavaSolution {
+public class ScannerQuestions {
     //Q. 문자열 출력하기
     // 답 1.
 //    public static void main(String[] args) {
