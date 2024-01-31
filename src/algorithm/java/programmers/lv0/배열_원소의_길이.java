@@ -34,4 +34,9 @@ public class 배열_원소의_길이 {
         return Arrays.stream(strlist).mapToInt(s -> s.length()).toArray();
     }
 
+    static class OtherPeopleAnswer{
+        public int[] solution(String[] strList) {
+            return Arrays.stream(strList).mapToInt(String::length).toArray();
+        }
+    }
 }
