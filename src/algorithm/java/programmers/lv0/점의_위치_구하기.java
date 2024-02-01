@@ -26,8 +26,8 @@ public class 점의_위치_구하기 {
                 if(dot[1] > 0) answer = 1;
                 else answer = 4;
             else
-            if(dot[1] > 0) answer = 2;
-            else answer = 3;
+                if(dot[1] > 0) answer = 2;
+                else answer = 3;
 
             return answer;
         }
