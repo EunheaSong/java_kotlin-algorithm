@@ -28,7 +28,7 @@ public class LongestCommonPrefix {
     strs[i] consists of only lowercase English letters.
      */
 
-    public String longestCommonPrefix(String[] strs) {
+    public String longestCommonPrefix(String[] strs) { //1ms , 41.51mb
         StringBuilder answer = new StringBuilder();
         boolean equals = true;
         int miniumLen = strs[0].length();
@@ -48,5 +48,54 @@ public class LongestCommonPrefix {
             if(equals) answer.append(c);
         }
         return answer.toString();
+    }
+
+    public static class LeetcodeOtherAnswer {
+
+        //Fastest answer. runtime : 0ms
+        public String longestCommonPrefix(String[] strs) {
+            String str;
+            int end = 0;
+            char curr;
+            int shortestLen = 201;
+            int len = 0;
+            for (int i = 0; i < strs.length; i++) {
+                len = strs[i].length();
+                if (shortestLen > len) {
+                    shortestLen = len;
+                }
+            }
+            // System.out.println("shortestLen = " + shortestLen);
+            boolean differs = false;
+            for (int j = 0; j < shortestLen; j++) {
+                curr = strs[0].charAt(j);
+                for (int i = 0; i < strs.length; i++) {
+                    if (strs[i].charAt(j) != curr) {
+                        differs = true;
+                        break;
+                    }
+                }
+                if (!differs) {
+                    end++;
+                } else {
+                    break;
+                }
+            }
+            // System.out.println("end = " + end);
+            return strs[0].substring(0, end);
+        }
+
+        // most efficient use of memory. Memory : 38.1 mb
+        public String longestCommonPrefix2(String[] strs) {
+            if (strs.length == 0)
+                return "";
+
+            for (int i = 0; i < strs[0].length(); ++i)
+                for (int j = 1; j < strs.length; ++j)
+                    if (i == strs[j].length() || strs[j].charAt(i) != strs[0].charAt(i))
+                        return strs[0].substring(0, i);
+
+            return strs[0];
+        }
     }
 }
