@@ -1,12 +1,13 @@
-packge algorithm.java.leetcoed.midium;
+package algorithm.java.leetcode.medium;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 	/*
 		1481. Least Number of Unique Integers after K Removals
 	*/
 
-public class A {
+public class LeastNumberOfUniqueIntegersAfterKRemovals {
 
 	public int findLeastNumOfUniqueInts(int[] arr, int k) {
         Map<Integer, Integer> map = new HashMap<>();
