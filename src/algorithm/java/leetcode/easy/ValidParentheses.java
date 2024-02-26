@@ -1,5 +1,7 @@
 package algorithm.java.leetcode.easy;
 
+import java.util.Stack;
+
 public class ValidParentheses {
     /*
     20. Valid Parentheses
