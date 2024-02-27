@@ -17,6 +17,7 @@ class DiameterOfBinaryTree {
      */
     var i = 0
     var bigest = 0
+
     fun diameterOfBinaryTree(root: TreeNode?): Int {
         i++
         var addLeft = 0
@@ -34,9 +35,9 @@ class DiameterOfBinaryTree {
         return if (i != 0) maxOf(addLeft, addRight)
         else bigest
     }
-}
 
-class TreeNode(var `val`: Int) {
-    var left: TreeNode? = null
-    var right: TreeNode? = null
+    class TreeNode(var `val`: Int) {
+        var left: TreeNode? = null
+        var right: TreeNode? = null
+    }
 }
