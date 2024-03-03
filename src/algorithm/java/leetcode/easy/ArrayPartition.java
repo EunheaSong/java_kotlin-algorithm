@@ -48,6 +48,7 @@ public class ArrayPartition {
         }
         return a;
     }
+
     public static class BookAnswer {
 
         public int arrayPairSum(int[] nums) {
