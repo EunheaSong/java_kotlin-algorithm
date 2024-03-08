@@ -20,4 +20,28 @@ public class SqrtX {
         return root;
     }
 
+    static class LeedCodeAnswer {
+        public int mySqrt(int x) {
+            if (x==0 || x==1){
+                return x;
+            }
+            int start = 0;
+            int end = x;
+            while (start<=end){
+                int mid = start + (end - start)/2;
+                if((long)mid*mid>(long)x)
+                    end = mid - 1;
+                else if(mid * mid == x)
+                    return mid;
+                else
+                    start = mid + 1;
+            }
+            return Math.round(end); //이것도 내장 함수이지 않나?
+        }
+    }
+
+    //내장된 함수를 사용하지 말라고 했으므로 이 방식은 사용하면 안되는 것 같다. 그런데 많은 사람들이 이 대답을 제출한 것으로 보인다..
+//    public int mySqrt(int x) {
+//        return (int) Math.sqrt(x);
+//    }
 }
