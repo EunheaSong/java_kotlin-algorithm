@@ -9,7 +9,7 @@ Big-O에는 "시간복잡도" 와 "공간복잡도"가 존재한다.
 
 정말 단순히 생각한다면 작업을 수행하는 횟수라고 볼 수 있다. 아래와 같은 경우는 O(n)이 소요된다.
 
-```jsx
+```java
 public class Main {
 
     public static void printItems(int n) {
