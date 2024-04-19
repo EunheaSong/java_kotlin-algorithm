@@ -147,6 +147,19 @@ public class LinkedList {
         }
     }
 
+    public Node findMiddleNode() {
+        if(head == null) return null;
+        if(head == tail) return head;
+        Node slow = head;
+        Node fast = head;
+        Node middleNode;
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast =  fast.next.next;
+        }
+        return slow;
+    }
+
     public void getHead() {
         System.out.println("Head : " + head.value);
     }
