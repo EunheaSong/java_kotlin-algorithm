@@ -160,6 +160,20 @@ public class LinkedList {
         return slow;
     }
 
+    public boolean hasLoop() {
+        if(length < 2) return false;
+
+        Node slow = head;
+        Node fast = head.next.next;
+
+        while( fast != null && fast.next != null) {
+            if(fast == slow) return true;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return false;
+    }
+
     public void getHead() {
         System.out.println("Head : " + head.value);
     }
