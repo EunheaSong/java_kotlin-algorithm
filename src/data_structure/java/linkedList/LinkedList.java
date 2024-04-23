@@ -147,6 +147,26 @@ public class LinkedList {
         }
     }
 
+    public void getHead() {
+        System.out.println("Head : " + head.value);
+    }
+
+    public void getTail() {
+        System.out.println("Tail : " + tail.value);
+    }
+
+    public void getLength() {
+        System.out.println("Length : " + length);
+    }
+
+
+    // LinkedList Test //
+
+    /*
+    Implement a method called findMiddleNode that returns the middle node of the linked list.
+    If the list has an even number of nodes, the method should return the second middle node.
+    Note: this LinkedList implementation does not have a length member variable.
+     */
     public Node findMiddleNode() {
         if(head == null) return null;
         if(head == tail) return head;
@@ -160,6 +180,17 @@ public class LinkedList {
         return slow;
     }
 
+    /*
+    Write a method called hasLoop that is part of the linked list class.
+    The method should be able to detect if there is a cycle or loop present in the linked list.
+    You are required to use Floyd's cycle-finding algorithm (also known as the "tortoise and the hare" algorithm) to detect the loop.
+    This algorithm uses two pointers: a slow pointer and a fast pointer.
+        The slow pointer moves one step at a time, while the fast pointer moves two steps at a time.
+        If there is a loop in the linked list, the two pointers will eventually meet at some point.
+        If there is no loop, the fast pointer will reach the end of the list.
+    Note: In this problem, you should use the slow and fast pointer technique
+        (also known as Floyd's Tortoise and Hare algorithm) to efficiently detect the presence of a loop in the linked list
+     */
     public boolean hasLoop() {
         if(length < 2) return false;
 
@@ -174,15 +205,27 @@ public class LinkedList {
         return false;
     }
 
-    public void getHead() {
-        System.out.println("Head : " + head.value);
-    }
+    /*
+    Implement a method called findKthFromEnd that returns the k-th node from the end of the list.
+    If the list has fewer than k nodes, the method should return null.
 
-    public void getTail() {
-        System.out.println("Tail : " + tail.value);
-    }
+    Note: This implementation of the Linked List class does not have the length attribute.
+     */
+    public Node findKthFromEnd(int k) {
+        Node fast = head;
+        Node slow = head;
+        for (int i = 0; i < k; i++) {
+            if (fast == null) return null;
+            fast = fast.next;
+        }
 
-    public void getLength() {
-        System.out.println("Length : " + length);
+        int i = 0;
+        while (i < k && fast != null) {
+            if(i == k) i = 0;
+            fast = fast.next;
+            slow = slow.next;
+            i++;
+        }
+        return slow;
     }
 }
