@@ -156,4 +156,55 @@ public class DoublyLinkedList {
     public void getLength() {
         System.out.println("Length : " + length);
     }
+
+    // Interview Question //
+
+    /*
+    Swap First and Last Node Values in a Doubly Linked List.
+    Given a doubly linked list, write a method called swapFirstLast() that swaps the values of the first and last nodes in the list.
+    If the length of the list is less than 2, the method should not perform any operation.
+    Note that the pointers to the nodes themselves are not swapped - only their values are exchanged.
+     */
+    public void swapFirstLast() {
+        if (length < 2) return;
+        int temp = head.value;
+        head.value = tail.value;
+        tail.value = temp;
+    }
+
+    /*
+    Implement a method called reverse() that reverses the order of the nodes in the list.
+    This method should reverse the order of the nodes in the list by manipulating the pointers of each node, not by swapping the values within the nodes.
+     */
+    public void reverse() {
+        Node current = head;
+        Node temp = null;
+        while (current != null) {
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;
+        }
+        temp = head;
+        head = tail;
+        tail = temp;
+    }
+
+    /*
+    Write a method to determine whether a given doubly linked list reads the same forwards and backwards.
+    For example, if the list contains the values [1, 2, 3, 2, 1], then the method should return true, since the list is a palindrome.
+    If the list contains the values [1, 2, 3, 4, 5], then the method should return false, since the list is not a palindrome.
+     */
+    public boolean isPalindrome() {
+        if (length <= 1) return true;
+        Node forwardNode = head;
+        Node backwardNode = tail;
+        for (int i = 0; i < length / 2; i++) {
+            if (forwardNode.value != backwardNode.value) return false;
+            forwardNode = forwardNode.next;
+            backwardNode = backwardNode.prev;
+        }
+        return true;
+    }
+
 }
