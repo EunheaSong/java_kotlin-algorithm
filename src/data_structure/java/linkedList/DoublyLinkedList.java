@@ -6,7 +6,7 @@ public class DoublyLinkedList {
     private int length;
 
     public class Node {
-        public int value;
+        int value;
         Node next;
         Node prev;
 
