@@ -16,7 +16,7 @@ public class Stack {
     public Stack(int value) {
         Node newNode = new Node(value);
         top = newNode;
-        height++;
+        height = 1;
     }
 
     public void printStack() {
