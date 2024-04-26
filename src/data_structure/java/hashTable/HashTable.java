@@ -1,5 +1,7 @@
 package data_structure.java.hashTable;
 
+import java.util.ArrayList;
+
 public class HashTable {
     private int size = 7;
     private Node[] dataMap;
@@ -40,6 +42,40 @@ public class HashTable {
         return hash;
     }
 
+    public void set(String key, int value) {
+        int index = hash(key);
+        Node newNode = new Node(key, value);
+        if (dataMap[index] == null) {
+            dataMap[index] = newNode;
+        } else {
+            Node temp = dataMap[index];
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+    }
 
+    public int get(String key) {
+        int index = hash(key);
+        Node temp = dataMap[index];
+        while (temp != null) {
+            if (temp.key.equals(key)) return temp.value;
+            temp = temp.next;
+        }
+        return 0; //예제에서는 반환값이 int 이기 때문에 null 을 줄 수 없어서 0을 주는 것 같다.
+    }
+
+    public ArrayList keys() {
+        ArrayList<String> allKeys = new ArrayList<>(dataMap.length);
+        for (Node node : dataMap) {
+            Node temp = node;
+            while (temp != null) {
+                allKeys.add(temp.key);
+                temp = temp.next;
+            }
+        }
+        return allKeys;
+    }
 
 }
