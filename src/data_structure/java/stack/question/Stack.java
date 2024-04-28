@@ -43,9 +43,7 @@ public class Stack<T> {
         if (isEmpty()) {
             return null;
         }
-        T temp = stackList.get(size() - 1);
-        stackList.remove(size() - 1);
-        return temp;
+        return stackList.remove(size() - 1);
     }
 
 }
