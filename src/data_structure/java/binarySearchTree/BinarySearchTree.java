@@ -1,5 +1,10 @@
 package data_structure.java.binarySearchTree;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class BinarySearchTree {
     public Node root; //코드 확인 테스트를 위해 public으로 변경.
 
@@ -118,5 +123,75 @@ public class BinarySearchTree {
     //특정 값을 제거하는 메서드
     public void deleteNode(int value) {
         deleteNode(root, value);
+    }
+
+    public ArrayList<Integer> BFS() {
+        Node currentNode = root;
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(currentNode);
+        ArrayList<Integer> result = new ArrayList<>();
+        while (!queue.isEmpty()) {
+            currentNode = queue.remove();
+            result.add(currentNode.value);
+            if (currentNode.left != null) {
+                queue.add(currentNode.left);
+            }
+            if (currentNode.right != null) {
+                queue.add(currentNode.right);
+            }
+        }
+        return result;
+    }
+
+    public ArrayList<Integer> DFSPreOrder() {
+        ArrayList<Integer> results = new ArrayList<>();
+        //굳이 이렇게 메소드 안에 클래스를 만들고 생성자를 활용하여 구현하는 이유는?..
+        class Traverse {
+            Traverse(Node currentNode) {
+                results.add(currentNode.value);
+                if (currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+                if (currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+        new Traverse(root);
+        return results;
+    }
+
+    public ArrayList<Integer> DFSPostOrder() {
+        ArrayList<Integer> results = new ArrayList<>();
+        class Traverse {
+            Traverse(Node currentNode) {
+                if (currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+                if (currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+                results.add(currentNode.value);
+            }
+        }
+        new Traverse(root);
+        return results;
+    }
+
+    public ArrayList<Integer> DFSInOrder() {
+        ArrayList<Integer> results = new ArrayList<>();
+        class Traverse {
+            Traverse(Node currentNode) {
+                if (currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+                results.add(currentNode.value);
+                if (currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+        new Traverse(root);
+        return results;
     }
 }
