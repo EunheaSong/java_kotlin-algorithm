@@ -70,7 +70,7 @@ Complete ❌, Full ✅, Perfect ❌
 
 ### 다른 형태도 있다!
 
-- Degenerate Tree <br> 모든 내부 노드가 하나의 하위 노드를 갖는 트리.
+- Degenerate Tree <br> 모든 내부 노드가 하나의 하위 노드를 갖는 트리. <br>
   ![tree8.png](../../image/tree10.png)
 - Skewed **Binary** Tree
   ![tree8.png](../../image/tree11.png)
