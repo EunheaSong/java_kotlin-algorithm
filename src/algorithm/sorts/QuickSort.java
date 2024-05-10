@@ -13,7 +13,11 @@ public class QuickSort {
         int swapIndex = pivotIndex;
         for (int i = pivotIndex + 1; i <= endIndex; i++) {
             if (array[i] < array[pivotIndex]) {
+                System.out.println("현재 swapIndex : " + swapIndex);
                 swapIndex++;
+                System.out.println("교체되는 swapIndex : " + swapIndex);
+                System.out.println("교체되는 i : " + i);
+
                 swap(array, swapIndex, i);
             }
         }
